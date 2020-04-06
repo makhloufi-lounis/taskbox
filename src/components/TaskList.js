@@ -37,7 +37,7 @@ function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     );
   }
 
-  if (tasks.length === 0) {
+  if (tasks && tasks.length === 0) {
     return (
         <div className="list-items">
           <div className="wrapper-message">
@@ -49,6 +49,7 @@ function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       );
   }
 
+  
   const tasksInOrder = [
     ...tasks.filter(t => t.state === 'TASK_PINNED'),
     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
@@ -65,9 +66,9 @@ function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
 TaskList.propTypes = {
     loading: PropTypes.bool,
-    tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
-    onPinTask: PropTypes.func.isRequired,
-    onArchiveTask: PropTypes.func.isRequired,
+    tasks: PropTypes.arrayOf(Task.propTypes.task),
+    onPinTask: PropTypes.func,
+    onArchiveTask: PropTypes.func,
 };
 
 TaskList.defaultProps = {
@@ -85,4 +86,4 @@ TaskList.defaultProps = {
       onPinTask: id => dispatch(pinTask(id)),
     })
   )(TaskList);*/
-  export default TaskList;
+ export default TaskList;
