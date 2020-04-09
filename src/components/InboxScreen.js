@@ -20,6 +20,7 @@ export function PureInboxScreen({ error }) {
           <div className="subtitle-message">Something went wrong</div>
         </div>
       </div>
+      
     );
   }
 
