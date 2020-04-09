@@ -21,6 +21,7 @@ export function PureInboxScreen({ error }) {
         </div>
       </div>
       
+
     );
   }
 
